@@ -3,6 +3,9 @@
 > A free, interactive **Data Structures and Algorithms visualisation website** built with plain HTML, CSS, and JavaScript, where you enter your own input and step through the real execution.
 
 ---
+> 🌍 **Project Type: Portfolio & Open for Everyone**
+>
+> This project started as a part of my portfolio, but it's built to be useful for everyone. Feel free to use it, fork it, and adapt it for your own needs. Contributions, issues, and suggestions are always welcome. If you find it helpful, consider giving it a ⭐!
 
 ## 📖 About the Project
 
