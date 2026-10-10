@@ -1,0 +1,11 @@
+{
+  "name": "dsa-visualizer",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Static DSA visualisation website in plain JavaScript (no React, no build step)",
+  "scripts": {
+    "start": "python3 -m http.server 8080",
+    "test": "node --test"
+  }
+}

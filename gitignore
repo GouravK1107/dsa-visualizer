@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+
+# Build output (this project has no build step, but keep these out if you add one)
+dist/
+build/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment files
+.env
+.env.*
+
+# Test coverage
+coverage/
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Archives
+*.zip
