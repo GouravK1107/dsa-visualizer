@@ -3,7 +3,7 @@ import { h } from '../utils/dom.js';
 
 export function AboutPage() {
   const profileImage = h('img', {
-    src: '/src/images/Mydp.png',
+    src: '/dsa-visualizer/src/images/Mydp.png',
     alt: 'Gourav R - Backend Developer',
     class: 'about-profile-image'
   });
