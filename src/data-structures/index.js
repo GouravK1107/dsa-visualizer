@@ -3,7 +3,10 @@ import { runQueue } from './queue.js';
 import { runArray } from './array.js';
 import { runString } from './string.js';
 import { runLinkedList } from './linkedList.js';
+import { renderList } from '../visualizers/listRenderer.js';
 import { moreStructures } from './more.js';
+import { advancedStructures } from './advanced.js';
+import { graphsAndTrees } from './graphsAndTrees.js';
 import { parseArray } from '../utils/parse.js';
 import { parseText } from '../utils/parseSpec.js';
 
@@ -32,7 +35,7 @@ export const dataStructures = [
     code: { python: 's = "hello"\ns = s + "_world"      # append (strings are immutable: builds a new one)\ns = s[:0] + ">>" + s[0:]   # insert\nc = s[3]             # charat\ni = s.find("wor")    # find, -1 if missing\ns = s.upper()[::-1] # upper + reverse' },
   }),
   typed({
-    id: 'linked-list', name: 'Linked List', run: runLinkedList, parseInitial: parseArray, initialLabel: 'Initial list', initialDefault: '3, 7, 9',
+    id: 'linked-list', name: 'Linked List', run: runLinkedList, render: renderList, parseInitial: parseArray, initialLabel: 'Initial list', initialDefault: '3, 7, 9',
     spec: { insert_head: ['num'], insert_tail: ['num'], insert_at: ['int', 'num'], delete_head: [], delete_tail: [], delete_value: ['num'], search: ['num'], traverse: [], reverse: [] },
     defaultOps: 'insert_head 1, insert_tail 12, insert_at 2 5, search 9, delete_value 7, delete_head, delete_tail, reverse, traverse',
     description: 'Singly linked list: nodes joined by next pointers (head pointer only). Operations: insert/delete at head, tail, position or by value, search, traverse, reverse.',
@@ -60,5 +63,7 @@ export const dataStructures = [
     code: { python: 'from collections import deque\n\nclass Queue:\n    def __init__(self):\n        self.items = deque()\n    def enqueue(self, x):\n        self.items.append(x)\n    def dequeue(self):\n        if not self.items:\n            raise IndexError("underflow")\n        return self.items.popleft()\n    def front(self):\n        return self.items[0]' },
   },
   ...moreStructures,
+  ...advancedStructures,
+  ...graphsAndTrees,
 ];
 export const getDataStructure = (id) => dataStructures.find((d) => d.id === id);

@@ -4,6 +4,7 @@ import { runHashTable } from './hashTable.js';
 import { runBST } from './bst.js';
 import { parseArray } from '../utils/parse.js';
 import { renderBuckets } from '../visualizers/bucketsRenderer.js';
+import { renderList } from '../visualizers/listRenderer.js';
 import { renderTree } from '../visualizers/treeRenderer.js';
 
 const typed = (o) => ({ category: 'Data Structures', ...o, allowed: Object.keys(o.spec) });
@@ -32,7 +33,7 @@ export const moreStructures = [
     code: { python: 'from collections import deque\n\nd = deque()\nd.append(4)       # push_back\nd.appendleft(9)   # push_front\nd.pop()           # pop_back\nd.popleft()       # pop_front' },
   }),
   typed({
-    id: 'doubly-linked-list', name: 'Doubly Linked List', parseInitial: parseArray, initialLabel: 'Initial list', initialDefault: '3, 7, 9',
+    id: 'doubly-linked-list', name: 'Doubly Linked List', render: renderList, parseInitial: parseArray, initialLabel: 'Initial list', initialDefault: '3, 7, 9',
     run: (o, i) => runLinkedList(o, i, { gap: '⇄', startMark: 'null ⇄', endMark: '⇄ null', tail: true }),
     spec: LL, defaultOps: LL_OPS,
     description: 'Each node has prev and next pointers, with head and tail pointers kept, so both ends are O(1).',
@@ -42,7 +43,7 @@ export const moreStructures = [
     code: { python: 'class Node:\n    def __init__(self, val):\n        self.val, self.prev, self.next = val, None, None\n\nclass DLL:\n    def __init__(self):\n        self.head = self.tail = None\n    def insert_tail(self, x):\n        n = Node(x)\n        if not self.tail:\n            self.head = self.tail = n\n        else:\n            n.prev, self.tail.next = self.tail, n\n            self.tail = n' },
   }),
   typed({
-    id: 'circular-linked-list', name: 'Circular Linked List', parseInitial: parseArray, initialLabel: 'Initial list', initialDefault: '3, 7, 9',
+    id: 'circular-linked-list', name: 'Circular Linked List', render: renderList, parseInitial: parseArray, initialLabel: 'Initial list', initialDefault: '3, 7, 9',
     run: (o, i) => runLinkedList(o, i, { endMark: '↩ back to head', tail: true }),
     spec: LL, defaultOps: LL_OPS,
     description: 'The last node points back to the head, so the list forms a loop. A tail pointer is kept.',
